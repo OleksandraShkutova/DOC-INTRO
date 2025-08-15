@@ -1,26 +1,29 @@
-console.log(document);
+//обробка подій
+const btn = document.getElementById('clickBtn');
+console.log(btn);
 
-console.log(document.head);
+const clickHandler = function(e){
+    console.log('Button was clicked!');
+};
+btn.onclick = clickHandler;
 
-console.log(document.body);
+const loginBtn = document.getElementById('loginBtn');
 
-const rootEl = document.getElementById('root');
-console.log('rootEl:', rootEl);
-console.dir(rootEl);
+const loginHandler = function(e){
+    console.log('Log in in prosses...');
+};
+loginBtn.addEventListener('click', loginHandler);
+loginBtn.removeEventListener('click', loginHandler);
 
-const divEl = document.getElementsByTagName('div');
-console.log('divEl:', divEl);
-console.log(divEl[0]);
+//
+const loginMouseMoveHandler = function(){
+    console.log('Click me!!!');
+};
+loginBtn.addEventListener('mousemove', loginMouseMoveHandler);
 
-const classEl = document.getElementsByClassName('content');
-console.log('classEl:', classEl);
-
-const rootEl3 = document.querySelector('#root');
-console.log(rootEl3);
-
-const divAll = document.querySelectorAll('div');
-console.log(divAll);
-
-//отримати список елементів з класом content
-
-console.log(document.querySelectorAll('.content'));
+//
+const hiBtn = document.getElementById('hiBtn');
+const hiHendler = function(e){
+    console.log('Hello, world!');
+};
+hiBtn.addEventListener('click', hiHendler);

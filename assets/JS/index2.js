@@ -1,47 +1,58 @@
-const slides = [
-    {
-        src: 'https://abal.com.ua/wp-content/uploads/2024/01/chym-more-vidrizniaietsia-vid-okeanu.jpg',
-        alt: 'ocean',
-    },
-    {
-        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROuIGYKr8z0wIVgT_PEbUvtEM_CkWdQQo2zg&s',
-        alt: 'forest',
-    },
-    {
-        src: 'https://images.squarespace-cdn.com/content/v1/5e8ee22524984c387cdaed27/f4ec0ded-9ff4-406e-8dd1-5f0fe74e48bf/Denali%2C+Alaska.jpg',
-        alt: 'mountains',
-    },
-    {
-        src: 'https://c02.purpledshub.com/uploads/sites/41/2020/07/GettyImages_10070316-c-f3dddad-scaled.jpg?w=1029&webp=1',
-        alt: 'sky',
-    },
-];
+/*
+//View Spagetti
+const [decBtn, incBtn] = document.querySelectorAll('.counterBtn');
+const counterEl = document.querySelector('#counter');
 
-let currentSlideIndex = 0;
+let counter = 0;
+counterEl.textContent = counter;
 
-const slideImg = document.querySelector('img');
-updateSlideImage(currentSlideIndex);
+function decCound(e){
+    counter--
+    counterEl.textContent = counter;
+};
+decBtn.addEventListener('click', decCound);
 
-const [prevBtn, nextBtn] = document.querySelectorAll('.navBtn');
+function incCount(e){
+    counter++
+    counterEl.textContent = counter;
+};
+incBtn.addEventListener('click', incCount);
+*/
 
-function nextSlideHandler (){
-   //if (currentSlideIndex  < slides.length - 1) {
-   // currentSlideIndex++
-   //} else {currentSlideIndex = 0}
-   currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-   updateSlideImage(currentSlideIndex);
+//MVVM  Model => View => ViewModel
+//Model
+class Counter {
+    constructor(counter){
+        this.counter = counter;
+    }
+    dec(){
+        this.counter--;
+    };
+    inc(){
+        this.counter++;
+    };
 };
 
-nextBtn.addEventListener('click', nextSlideHandler);
+//ViewModel
+const [decBtn, incBtn] = document.querySelectorAll('.counterBtn');
+const counterEl = document.querySelector('#counter');
 
-function prevSlideHandler (){
-   currentSlideIndex = (currentSlideIndex - 1 +slides.length) % slides.length;
-   updateSlideImage(currentSlideIndex);
+const count = new Counter(0);
+
+updateView();
+
+function decCound(e){
+    count.dec();
+    updateView();
 };
+decBtn.addEventListener('click', decCound);
 
-prevBtn.addEventListener('click', prevSlideHandler);
+function incCount(e){
+    count.inc();
+    updateView();
+};
+incBtn.addEventListener('click', incCount);
 
-function updateSlideImage(currentSlideIndex){
-    slideImg.src = slides[currentSlideIndex].src;
-    slideImg.alt = slides[currentSlideIndex].alt;
+function updateView() {
+    counterEl.textContent = count.counter;
 };

@@ -1,3 +1,4 @@
+
 body {
     min-height: 100vh;
     font-size: 56px;
@@ -6,8 +7,18 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-section {
+/*
+.div {
     border: 5px solid blue;
     padding: 30px;
 }
+
+.div2 {
+    background-color: blueviolet;
+}
+
+.border {
+    border: 5px solid purple;
+}
+
+

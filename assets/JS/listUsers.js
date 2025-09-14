@@ -11,12 +11,12 @@ const userCardEl = document.createElement('article');
 userCardEl.classList.add('userCard');
 document.body.append(userCardEl);
 
-//const userImg = createImg(user);
-//const userInfoEl = createUserInfo(user);
-//const trashEl = createTrashEl(user);
-//userCardEl.append(userImg, userInfoEl, trashEl);
+const userImg = createImg(user);
+const userInfoEl = createUserInfo(user);
+const trashEl = createTrashEl();
+userCardEl.append(userImg, userInfoEl, trashEl);
 
-userCardEl.append(createImg(user), createUserInfo(user), createTrashEl());
+//userCardEl.append(createImg(user), createUserInfo(user), createTrashEl());
 
 function createImg ({firstName, lastName, photoSrc}){
     const userImg = document.createElement('img');
@@ -48,15 +48,18 @@ function createTrashEl(){
     trashEl.classList.add('fa-solid');
     trashEl.classList.add('fa-trash');
     trashEl.classList.add('trashIcon');
-    return trashEl;
-}
-function deleteUser (e){
+    
+    function deleteUser (e){
     //uaeCard.remove();
     //e.target.parentElement.remove()
-    e.target.closest('body').remove();
+        e.target.closest('body').remove();
+    };
+    trashEl.onclick = deleteUser;
+    return trashEl;
 };
 
-trashEl.onclick = deleteUser;
+
+
 
 
 

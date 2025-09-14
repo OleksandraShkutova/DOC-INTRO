@@ -1,24 +1,2 @@
 
-body {
-    min-height: 100vh;
-    font-size: 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-/*
-.div {
-    border: 5px solid blue;
-    padding: 30px;
-}
-
-.div2 {
-    background-color: blueviolet;
-}
-
-.border {
-    border: 5px solid purple;
-}
-
 

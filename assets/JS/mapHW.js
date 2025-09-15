@@ -36,12 +36,12 @@ console.log('listValues:', listValues);
 
 2
 const map3 = new Map();
-map3.set('1', 'first').set('2', 'second').set('3', 'third');
+map3.set(1, 'first').set(2, 'second').set(3, 'third');
 console.log(map3);
 function changedText(text) {
     return text
     .split(' ')
-    .map(n => (map3.has(n)) ? map3.get(n) : n)
+    .map(n => (map3.has(Number(n)) ? map3.get(Number(n)) : n))
     .join (' ');
 };
 

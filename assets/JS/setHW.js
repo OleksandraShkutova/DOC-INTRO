@@ -30,10 +30,17 @@ console.log(set1);
 const arr = [1,6,9,4,9,1,5,6];
 const set2 = new Set(arr);
 console.log('set2:', set2);
+const arrFromSet2 = Array.from(set2);
+//const arrFromSet2 = Array.from(new Set(arr));
+console.log('array fron set2', arrFromSet2);
+
 
 const arr2 = [5, 10, 11];
 const set3 = new Set([...arr, ...arr2]);
 console.log('set all:', set3);
+const arrFromSet3 = Array.from(set3);
+//const arrFromSet3 = Array.from(new Set([...arr, ...arr2]));
+console.log('array fron set2', arrFromSet3);
 
 //3
 const messages = [

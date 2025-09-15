@@ -22,23 +22,23 @@ class Post {
         return this._likes
     };
 
-    getChangeText (newText){
+    changeText (newText){
         return this.text = newText;
     };
-    getDecLikes (){
-        return this.likes + 1;
+    decLikes (){
+        return --this.likes;
     };
-    gerIncLikes (){
-        return this.likes - 1;
+    incLikes (){
+        return ++this.likes;
     }
 };
 
 try {
     const myPost = new Post ('1', 'New Year', 'Sasha', 'Marry Christmas and Happy New Year', new Date(), 58);
     console.log('myPost', myPost);
-    console.log('new text:', myPost.getChangeText('new post about Marry Christmas and Happy New Year'));
-    console.log(myPost.getDecLikes());
-    console.log(myPost.gerIncLikes());
+    console.log('new text:', myPost.changeText('new post about Marry Christmas and Happy New Year'));
+    console.log(myPost.decLikes());
+    console.log(myPost.incLikes());
 } catch (err) {
     console.log('error:', err);
 };

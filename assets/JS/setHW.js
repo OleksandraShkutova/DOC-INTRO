@@ -56,7 +56,7 @@ console.log('user names:', userNames);
 //{name:[messages],name:[messages]}
 const userNamesWithMessages = {};
 userNames.forEach(
-    n => userNamesWithMessages[n] = messages.filter(m => m.name === n).map(m => m.message)
+    n => userNamesWithMessages[n] = messages.filter(m => m.name === n).map(m => ({messages: m.message, date: m.date}))
 );
 
 console.log('userNames with messages:', userNamesWithMessages);

@@ -1,11 +1,10 @@
 :root {
   font-family: sans-serif;
-  --user-img-size: 100px;
-  --user-color-nick:purple;
+  --user-color:grey;
 }
 
 .newsCard {
-  box-shadow: grey 0 0 5px;
+  box-shadow: var(--user-color) 0 0 5px;
   margin: 5px;
 }
 
@@ -19,19 +18,37 @@
    margin: 0 auto;
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
 }
 
-.btnLikes {
+.btnLikes  {
   border: 1px black solid;
   border-radius: 50%;
   padding: 3px;
   margin-left: auto;
 }
 
-.newContent{
-
+.btnDeleteNews {
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
 }
 
-.
+.newsContent {
+  padding: 15px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category {
+  color: var(--user-color);
+  margin-right: auto;
+  text-transform: uppercase;
+}
+
+.dataPublic {
+  color: var(--user-color);
+  margin-left: auto;
+}

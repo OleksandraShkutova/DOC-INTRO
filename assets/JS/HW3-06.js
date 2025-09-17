@@ -35,3 +35,71 @@ const news = [
 	date: '2025-02-04',
 	},
 ];
+
+const newsCards = news.map(n => createNewsCard(n));
+document.body.append(... newsCards);
+
+function createNewsCard(news) {
+    const newsCardEl = document.createElement('article');
+    newsCardEl.classList.add('newsCard');
+    const newsTitleEl = createNewsTitle(news);
+    const newsContentlEl = createNewsContent(news);
+    newsCardEl.append(newsTitleEl, newsContentlEl);
+    return newsCardEl;
+};
+
+function createNewsTitle ({title, headerBgSrc}){
+    const newsTitleEl = document.createElement('div');
+    newsTitleEl.classList.add('newsTitle');
+	newsTitleEl.style.backgroundImage.url = `${headerBgSrc}`
+    
+    const btnLikes = document.createElement('button');
+    btnLikes.classList.add('btnLikes');
+	const likeIcon = document.createElement('i');
+    likeIcon.classList.add('fa-regular');
+    likeIcon.classList.add('fa-heart');
+	btnLikes.append(likeIcon);
+	newsTitleEl.append(btnLikes);
+
+    const headerEl = document.createElement('h2');
+    headerEl.textContent = `${title}`;
+    newsTitleEl.append(headerEl);
+
+	const btnDelete = document.createElement('button');
+    btnDelete.classList.add('btnDeleteNews');
+	const trashIcon = document.createElement('i');
+    trashIcon.classList.add('fa-solid');
+    trashIcon.classList.add('fa-trash');
+	btnDelete.append(trashIcon);
+	newsTitleEl.append(btnDelete);
+
+    function deleteNews (e){
+    e.target.closest('article').remove();
+    }
+    trashIcon.onclick = deleteNews;
+    
+    newsTitleEl.append(btnDelete);
+
+    return newsTitleEl;
+};
+
+function createNewsContent ({category, body, date}){
+    const newsContentEl = document.createElement('div');
+    newsContentEl.classList.add('newsContent');
+    
+    const newsCategoryEl = document.createElement('h3');
+    newsCategoryEl.classList.add('category');
+    newsCategoryEl.textContent = `${category}`;
+    newsContentEl.append(newsCategoryEl);
+
+    const textEl = document.createElement('p');
+    textEl.textContent = `${body}`;
+    newsContentEl.append(textEl);
+
+	const newsDataPublic = document.createElement('p');
+    newsDataPublic.classList.add('dataPublic');
+    newsDataPublic.textContent = `${date}`;
+    newsContentEl.append(newsDataPublic);
+
+    return newsContentEl;
+};

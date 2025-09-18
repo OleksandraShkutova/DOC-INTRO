@@ -1,54 +1,13 @@
-:root {
-  font-family: sans-serif;
-  --user-color:grey;
+
+body {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.newsCard {
-  box-shadow: var(--user-color) 0 0 5px;
-  margin: 5px;
-}
-
-.newsTitle {
-   background-image: url(https://plus.unsplash.com/premium_photo-1719360604040-f1b162124df1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Z2FtZXN8ZW58MHx8MHx8fDA%3D);
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   color: black;
-   padding: 1em;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
-.btnLikes  {
-  border: 1px black solid;
-  border-radius: 50%;
-  padding: 3px;
-  margin-left: auto;
-}
-
-.btnDeleteNews {
-  margin-left: auto;
-  border: none;
-  background-color: transparent;
-}
-
-.newsContent {
-  padding: 15px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.category {
-  color: var(--user-color);
-  margin-right: auto;
-  text-transform: uppercase;
-}
-
-.dataPublic {
-  color: var(--user-color);
-  margin-left: auto;
+.time {
+    margin: 10px;
 }

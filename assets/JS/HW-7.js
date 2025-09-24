@@ -1,17 +1,14 @@
 
-let intervalId = null;
-
-  function numberFromTo (from, to) {
-    let n = from - 1;
-    return function (){
-        if (n < to){
-            console.log(++n);
-        } else {
-            intervalId = setInterval(printNumbers, 2000);
-            clearInterval(intervalId);
+  function printNumbers (from, to) {
+    let n = from;
+    setTimeout(function step(){
+        console.log(n);
+        if (n < to) {
+            setTimeout(step, 2000);
         }
-    }
+        n++;
+    }, 2000);
   }
-  const printNumbers = numberFromTo(2, 10);
-  setInterval(printNumbers, 1000);
+  printNumbers(2, 5);
+  
  
